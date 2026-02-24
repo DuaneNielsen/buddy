@@ -34,7 +34,7 @@ class StagehandSessionManager {
         console.log('Creating new Stagehand instance');
         this.stagehand = new Stagehand({
           env: 'LOCAL',
-          headless: false,
+          localBrowserLaunchOptions: { headless: false },
         });
 
         try {
@@ -65,7 +65,7 @@ class StagehandSessionManager {
           console.log('Browser session expired, reinitializing Stagehand...');
           this.stagehand = new Stagehand({
             env: 'LOCAL',
-            headless: false,
+            localBrowserLaunchOptions: { headless: false },
           });
           await this.stagehand.init();
           this.initialized = true;
