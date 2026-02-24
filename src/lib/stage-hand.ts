@@ -33,9 +33,8 @@ class StagehandSessionManager {
       if (!this.stagehand || !this.initialized) {
         console.log('Creating new Stagehand instance');
         this.stagehand = new Stagehand({
-          apiKey: process.env.BROWSERBASE_API_KEY!,
-          projectId: process.env.BROWSERBASE_PROJECT_ID!,
-          env: 'BROWSERBASE',
+          env: 'LOCAL',
+          headless: false,
         });
 
         try {
@@ -65,9 +64,8 @@ class StagehandSessionManager {
         ) {
           console.log('Browser session expired, reinitializing Stagehand...');
           this.stagehand = new Stagehand({
-            apiKey: process.env.BROWSERBASE_API_KEY!,
-            projectId: process.env.BROWSERBASE_PROJECT_ID!,
-            env: 'BROWSERBASE',
+            env: 'LOCAL',
+            headless: false,
           });
           await this.stagehand.init();
           this.initialized = true;

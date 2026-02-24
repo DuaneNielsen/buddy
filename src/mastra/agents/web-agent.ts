@@ -7,9 +7,9 @@ import { pageNavigateTool } from '../tools/page-navigate-tool';
 
 const memory = new Memory();
 
-export const webAgent = new Agent({
-  id: 'web-agent',
-  name: 'Web Assistant',
+export const buddy = new Agent({
+  id: 'buddy',
+  name: 'buddy',
   instructions: `
       You are a helpful web assistant that can navigate websites and extract information.
 

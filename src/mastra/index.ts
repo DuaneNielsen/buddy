@@ -2,7 +2,7 @@ import { Observability, DefaultExporter, CloudExporter, SensitiveDataFilter } fr
 import { Mastra } from '@mastra/core/mastra';
 import { LibSQLStore } from '@mastra/libsql';
 import { PinoLogger } from '@mastra/loggers';
-import { webAgent } from './agents/web-agent';
+import { buddy } from './agents/web-agent';
 
 export const mastra = new Mastra({
   storage: new LibSQLStore({
@@ -10,7 +10,7 @@ export const mastra = new Mastra({
     // stores observability, evals, ... into memory storage, if it needs to persist, change to file:../mastra.db
     url: ':memory:',
   }),
-  agents: { webAgent },
+  agents: { buddy },
   logger: new PinoLogger({
     name: 'Mastra',
     level: 'info',
